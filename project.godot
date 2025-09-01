@@ -1,0 +1,68 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Alicea Doro"
+config/description="Desktop pet Alicea Doro witness it comitte crimes and other evil things. :3"
+config/version="1.0.0"
+run/main_scene="uid://k84m6ks04v5h"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="uid://yswk7arvhnff"
+config/windows_native_icon="res://icon.ico"
+
+[autoload]
+
+Global="*res://global.gd"
+
+[display]
+
+window/size/viewport_width=120
+window/size/viewport_height=120
+window/size/resizable=false
+window/size/borderless=true
+window/size/always_on_top=true
+window/size/transparent=true
+window/size/extend_to_title=true
+window/subwindows/embed_subwindows=false
+window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="AliceaDeskDoro"
+
+[input]
+
+mouseLeft={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+mouseRight={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+optionsMenuBind={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":69,"location":0,"echo":false,"script":null)
+]
+}
+debugMenuBind={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":true,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":68,"location":0,"echo":false,"script":null)
+]
+}
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+viewport/transparent_background=true

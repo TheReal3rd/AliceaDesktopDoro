@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://k84m6ks04v5h"]
+
+[ext_resource type="PackedScene" uid="uid://dyq0s07b22xn6" path="res://Scenes/DoroScene.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node2D"]
+
+[node name="DoroScene" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(56, 59)

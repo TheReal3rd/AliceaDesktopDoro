@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://b871kod3sdg6h"]
+
+[ext_resource type="SpriteFrames" uid="uid://crud16d8qsd2l" path="res://Sprites/DoroScene.tres" id="1_hhgdf"]
+[ext_resource type="Script" uid="uid://babpjtpqyp037" path="res://Scenes/Objects/alicea_doro_object.gd" id="1_ytgbn"]
+[ext_resource type="Texture2D" uid="uid://cgj3fh3jhyfem" path="res://Assets/questionMarks.png" id="3_qptns"]
+[ext_resource type="Texture2D" uid="uid://djcj7hlk0rdg4" path="res://Assets/eatParticle.png" id="4_k4j44"]
+[ext_resource type="Texture2D" uid="uid://selrr35ju5qe" path="res://Assets/heart.png" id="4_vdjfc"]
+[ext_resource type="Texture2D" uid="uid://x6myhtywmw3n" path="res://Assets/SleepingZ.png" id="6_hyuvv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytgbn"]
+size = Vector2(102, 97)
+
+[node name="AliceaDoroObject" type="Area2D"]
+script = ExtResource("1_ytgbn")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_hhgdf")
+animation = &"Idle"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 1.5)
+shape = SubResource("RectangleShape2D_ytgbn")
+metadata/_edit_lock_ = true
+
+[node name="ConfusedParticles" type="CPUParticles2D" parent="."]
+top_level = true
+texture_filter = 1
+position = Vector2(1, -14)
+emitting = false
+amount = 4
+texture = ExtResource("3_qptns")
+lifetime = 1.5
+speed_scale = 1.5
+explosiveness = 0.42
+randomness = 0.15
+emission_shape = 3
+emission_rect_extents = Vector2(30, 3)
+gravity = Vector2(0, -20)
+angle_min = -40.0
+angle_max = 40.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+metadata/_edit_lock_ = true
+
+[node name="HeartsParticles" type="CPUParticles2D" parent="."]
+top_level = true
+texture_filter = 1
+position = Vector2(1, -14)
+emitting = false
+amount = 4
+texture = ExtResource("4_vdjfc")
+lifetime = 1.5
+speed_scale = 1.5
+explosiveness = 0.42
+randomness = 0.15
+emission_shape = 3
+emission_rect_extents = Vector2(30, 3)
+gravity = Vector2(0, -20)
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+angle_min = -40.0
+angle_max = 40.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+metadata/_edit_lock_ = true
+
+[node name="EatingParticles" type="CPUParticles2D" parent="."]
+top_level = true
+texture_filter = 1
+position = Vector2(-13, 12)
+emitting = false
+amount = 6
+texture = ExtResource("4_k4j44")
+lifetime = 1.5
+speed_scale = 2.0
+explosiveness = 0.21
+randomness = 0.29
+lifetime_randomness = 0.24
+emission_shape = 1
+emission_sphere_radius = 5.88
+spread = 75.86
+gravity = Vector2(0, 30)
+angular_velocity_min = -192.0
+angular_velocity_max = 246.86
+radial_accel_min = -7.75
+radial_accel_max = 7.62
+angle_min = -40.0
+angle_max = 40.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+metadata/_edit_lock_ = true
+
+[node name="SleepingParticles" type="CPUParticles2D" parent="."]
+top_level = true
+texture_filter = 1
+position = Vector2(1, -14)
+emitting = false
+amount = 4
+texture = ExtResource("6_hyuvv")
+lifetime = 1.5
+speed_scale = 1.5
+explosiveness = 0.42
+randomness = 0.15
+emission_shape = 3
+emission_rect_extents = Vector2(30, 3)
+gravity = Vector2(0, -20)
+angle_min = -40.0
+angle_max = 40.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+metadata/_edit_lock_ = true
+
+[connection signal="ready" from="ConfusedParticles" to="." method="_on_confused_particles_ready"]
+[connection signal="ready" from="HeartsParticles" to="." method="_on_hearts_particles_ready"]
+[connection signal="ready" from="EatingParticles" to="." method="_on_eating_particles_ready"]
+[connection signal="ready" from="SleepingParticles" to="." method="_on_sleeping_particles_ready"]

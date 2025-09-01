@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqwq6fw3lfb1t"]
+
+[ext_resource type="Script" uid="uid://dc7b6i47je5uo" path="res://Scenes/setting_scene.gd" id="1_ym04w"]
+
+[node name="SettingScene" type="HBoxContainer"]
+anchors_preset = -1
+anchor_right = 1.908
+anchor_bottom = 0.292
+offset_right = -228.96
+offset_bottom = -35.04
+script = ExtResource("1_ym04w")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Setting Name"
+
+[node name="ValueEntryString" type="TextEdit" parent="."]
+visible = false
+layout_mode = 2
+placeholder_text = "Setting Value"
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="ValueEntryBoolean" type="CheckButton" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="."]
+layout_mode = 2
+text = "Reset"
+
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]

@@ -1,0 +1,282 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgikbauthfhl2"]
+
+[ext_resource type="Script" uid="uid://ddnv6h5uay17r" path="res://Scenes/AdoptionSigning/adoption_signing.gd" id="1_8s15l"]
+[ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/menuBackground.png" id="1_k5e6f"]
+[ext_resource type="Texture2D" uid="uid://bq783b1cldkcf" path="res://Assets/paperTexture.png" id="2_5x4an"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5x4an"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8s15l"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="AdoptionSigning" type="Window"]
+title = "Adoption Papers"
+initial_position = 1
+size = Vector2i(600, 600)
+unresizable = true
+script = ExtResource("1_8s15l")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 601.0
+offset_bottom = 601.0
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 600.0
+texture = ExtResource("1_k5e6f")
+metadata/_edit_lock_ = true
+
+[node name="Paper" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 590.0
+offset_bottom = 590.0
+texture = ExtResource("2_5x4an")
+metadata/_edit_lock_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 588.0
+offset_bottom = 587.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="Control/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Doro Adoption and Stewardship Terms of Service and Safety Protocol"
+label_settings = SubResource("LabelSettings_5x4an")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+metadata/_edit_lock_ = true
+
+[node name="Text" type="Label" parent="Control/ScrollContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Effective date: immediately upon viewing
+Governing body: Doro Care Services
+
+This Terms of Service sets forth binding conditions for adopting, housing, and caring for a Doro. The obligations herein are comprehensive by design. They are drafted to minimize ambiguity, reduce foreseeable risk, and establish routine, auditable practices. Adopters should read in full and retain a copy for ongoing reference. Failure to comply can result in corrective action, including removal of the Doro by Doro Care Services.
+
+1. Definitions
+
+1.1 Doro means the companion entity entrusted to the Adopter pursuant to this program.
+1.2 Adopter means the individual or legal entity accepting custody, care, and compliance obligations.
+1.3 Household means the physical premises and all persons regularly present therein.
+1.4 Premises means any indoor or outdoor space where the Doro is resident or present, whether temporary or permanent.
+1.5 Doro Care Services means the authority empowered to monitor compliance, conduct inspections, provide guidance, and repossess a Doro upon noncompliance or risk determination.
+1.6 Prohibited Substance means any meat, any non-edible item, and any psychedelic substance, whether plant-derived, synthetic, or otherwise.
+1.7 Radioactive Material means any material or device emitting ionizing radiation, including but not limited to industrial, medical, research, or consumer sources, whether active, spent, sealed, or unsealed.
+
+2. Acceptance, Scope, and Duration
+
+2.1 By accepting custody of a Doro, the Adopter consents to the entirety of this document, including all referenced schedules and future compliance updates communicated by Doro Care Services.
+2.2 The obligations herein apply continuously, without interruption, in all locations and contexts where the Doro is present.
+2.3 The Terms persist for the full period of custody and for any post-custody audit window specified by Doro Care Services.
+
+3. Eligibility and Continuing Duties
+
+3.1 The Adopter affirms capacity to provide stable housing, predictable routines, risk controls, and health care access.
+3.2 The Adopter maintains a primary point of contact reachable at all times for urgent matters, plus a backup contact familiar with these Terms.
+3.3 The Adopter agrees to ongoing education, including updates issued by Doro Care Services when standards evolve to reflect new safety findings.
+
+4. Health Requirements and Vaccination Protocol
+
+4.1 Vaccination is mandatory. The Adopter must schedule, obtain, and document all core and booster vaccines specified by Doro Care Services.
+4.2 Purpose and rationale. Vaccination reduces the probability and severity of Doro-specific diseases and interrupts transmission chains in multi-Doro or mixed environments. This is a community risk management measure with individual, household, and public implications.
+4.3 Records. Maintain written or digital vaccination records, including date, batch, administering professional, and any post-vaccination observations for at least 24 months or the length of custody, whichever is longer. Records must be readily producible upon request.
+4.4 Missed or delayed doses. If a scheduled dose is missed, the Adopter must contact Doro Care Services within twenty-four hours to obtain a catch-up plan. Uncorrected lapses can result in temporary restrictions, home visits, or removal.
+4.5 Symptom vigilance. The Adopter must monitor for signs consistent with communicable illness and implement isolation measures until cleared by a qualified professional or Doro Care Services.
+4.6 Noncompliance. Persistent or material failure to meet vaccination obligations will result in removal of the Doro by Doro Care Services to protect the health of the Doro and the broader community.
+
+5. Nutrition and Feeding Controls
+
+5.1 The Doro is managed as a vegetarian for health, behavioral stability, and safety reasons. The following are strictly prohibited:
+
+Meat. Includes red meat, poultry, fish, shellfish, organ meats, and derivatives. Rationale: meat intake is associated with adverse digestive responses and counterproductive arousal states inconsistent with stable stewardship.
+
+Non-edible items. Includes plastics, metals, batteries, cosmetics, cleaning agents, houseplants not cleared as edible, and any item not specifically intended as food. Rationale: ingestion risk, toxicity risk, obstruction risk, and diagnostic ambiguity that complicates urgent care.
+
+Psychedelic substances. Includes any hallucinogen, entheogen, dissociative, or serotonergic/psychoactive agent, whether microdosed or otherwise. Rationale: destabilization of orientation, impaired risk perception, prolonged recovery windows, and downstream behavioral volatility.
+
+5.2 Storage controls. Food areas must be physically segregated from all non-edible storage. Use latching or locking containers to prevent access to Prohibited Substances.
+5.3 Labeling. The Adopter implements plain-language labels indicating edible status to reduce error during caregiving by visitors, children, or pet sitters.
+5.4 Incident response. If ingestion of a Prohibited Substance is suspected, the Adopter must secure the Doro in a quiet area, withhold additional intake, and contact Doro Care Services or an appropriate professional immediately for instructions.
+5.5 Audits. Doro Care Services may review labeling, storage practices, and incident logs. Failure to maintain these controls can lead to corrective actions or removal.
+
+6. Environmental Safety and Hazard Isolation
+
+6.1 Radioactive Material access is prohibited without exception. This includes direct possession, indirect access, or proximity that allows contact, manipulation, observation of controls, or modeling of device behavior.
+6.2 Rationale. Exposure to Radioactive Material presents non-trivial health risks and creates unacceptable dual-use potential whereby a Doro could infer patterns or mechanisms leading to development of devices with catastrophic potential. Absolute prevention is required; risk acceptance is not permitted under any circumstances.
+6.3 Controls. The Adopter must survey the Premises for any Radioactive Material and remove it from the environment or secure it offsite under third-party control prior to the Doro’s arrival.
+6.4 Reporting. Discovery of any previously unknown Radioactive Material or similar hazard requires immediate notification to Doro Care Services with a description of location, nature, and interim containment measures.
+6.5 Analogs. The same isolation logic applies to high-energy devices, advanced laboratory apparatus, and other items identified by Doro Care Services as presenting design inference risk.
+6.6 Consequences. Any verified lapse in hazard isolation will result in immediate removal of the Doro pending investigation.
+
+7. Behavioral Interaction Protocols
+
+7.1 General handling. Interactions must be predictable, calm, and free from coercive stimuli. Avoid sudden demands, ambiguous cues, or actions that can be interpreted as recruitment, evaluation, or conscription.
+7.2 Employment-type stimuli. Presenting a job application, hiring form, performance review, onboarding packet, or similar document is prohibited. Rationale: such stimuli are correlated with acute avoidance behaviors, including flight from the Premises. The Adopter shall not stage, test, or otherwise expose the Doro to employment content in any medium.
+7.3 Visitors. Prior to visits, the Adopter communicates these protocols to all guests. Noncompliant guests are not permitted direct interaction.
+7.4 Children and vulnerable persons. Interactions must be supervised. The Adopter remains responsible for ensuring the protocols are followed by all members of the Household.
+7.5 Stimulus logging. If the Doro exhibits withdrawal, hiding, or escape attempts following a specific interaction, the Adopter records time, context, and antecedents, and reports patterns during compliance reviews.
+
+8. Prohibited Conduct
+
+8.1 Exposure to Prohibited Substances as set forth in Section 5.
+8.2 Exposure to Radioactive Material as set forth in Section 6.
+8.3 Provocation via employment-type stimuli as set forth in Section 7.
+8.4 Neglect of vaccination obligations as set forth in Section 4.
+8.5 Failure to maintain records, storage controls, or inspection access as set forth in Sections 5, 9, and 10.
+
+9. Inspections, Monitoring, and Access
+
+9.1 Doro Care Services may conduct scheduled or unannounced inspections to verify compliance. Inspections may include review of vaccination records, storage areas, hazard surveys, and stimulus logs.
+9.2 The Adopter must provide reasonable access to the Premises for inspections. Obstruction, delay, or failure to produce requested materials constitutes noncompliance.
+9.3 Post-inspection findings will be documented and shared. The Adopter must close any noted gaps within the timeline specified. Repeated findings escalate enforcement.
+
+10. Incident Management and Reporting
+
+10.1 Reportable incidents include suspected illness, ingestion of Prohibited Substances, exposure to Radioactive Material, loss of custody, escape from the Premises, or any event materially affecting health or safety.
+10.2 Timelines. Immediate hazards must be reported without delay. All other incidents must be reported within twenty-four hours.
+10.3 Stabilization. The Adopter must prioritize stabilization of the Doro and containment of the environment before secondary actions.
+10.4 Documentation. Maintain incident logs with times, actions taken, persons involved, and outcomes for review.
+
+11. Records, Data Retention, and Documentation
+
+11.1 Maintain the following at all times: vaccination records, feeding controls and labels, hazard survey attestations, inspection reports, incident logs, and contact details for backup caregivers.
+11.2 Retain records for audit for not less than twenty-four months from the date of last custody or as otherwise directed.
+11.3 Records must be legible, timestamped, and stored in a manner that protects confidentiality while permitting timely retrieval.
+
+12. Transfers, Travel, and Temporary Custody
+
+12.1 The Doro may not be transferred to third parties without prior written authorization from Doro Care Services.
+12.2 Travel planning must include verification that destination environments meet Sections 4 through 7.
+12.3 Temporary caregivers must receive this document in full and acknowledge responsibilities before assuming any duties.
+
+13. Enforcement, Remedies, and Removal
+
+13.1 Doro Care Services may impose corrective actions proportionate to risk and history, including training requirements, increased inspection frequency, or temporary restrictions.
+13.2 Material or repeated noncompliance, or any single event indicating significant disregard for Sections 4, 5, 6, or 7, will result in removal of the Doro by Doro Care Services.
+13.3 Removal is protective, not punitive. However, re-adoption eligibility may be conditioned on documented remediation.
+
+14. Disclaimers and Risk Allocation
+
+14.1 The Adopter acknowledges that stewardship involves inherent uncertainties. This document identifies minimum controls intended to reduce foreseeable risks.
+14.2 The Adopter assumes responsibility for implementing controls appropriate to the specific Premises, including controls not explicitly listed where a reasonable person would identify comparable risk.
+
+15. Amendments and Notices
+
+15.1 Doro Care Services may amend these Terms to reflect new safety information.
+15.2 Notices will be deemed received when sent to the primary contact on record. The Adopter is responsible for keeping contact details current.
+
+Appendix A. Scenario Guidelines with Rationale and Stepwise Response
+
+A1. Presentation of employment materials
+A1.1 Prohibition. Do not present job applications, hiring packets, or performance evaluations.
+A1.2 Rationale. Such materials are linked to elevated stress responses and immediate flight behavior that compromises safety and continuity of care.
+A1.3 Response if exposed. Remove documents from view, reduce stimuli, provide a quiet, stable environment, document the event, and notify Doro Care Services for follow-up.
+
+A2. Missed vaccination appointment
+A2.1 Risk. Gaps in vaccination create windows of susceptibility and increase transmission risk to other Doros and vulnerable persons.
+A2.2 Required action. Contact Doro Care Services within twenty-four hours to obtain a revised schedule. Until caught up, limit the Doro’s exposure to communal spaces.
+
+A3. Suspected ingestion of meat, non-edible items, or psychedelics
+A3.1 Indicators. Sudden gastrointestinal distress, altered orientation, unusual fixation on inedible objects, or behavior inconsistent with baseline.
+A3.2 Response. Isolate from further intake, secure the environment against additional exposure, contact Doro Care Services or an appropriate professional, and prepare incident documentation.
+A3.3 Prevention. Maintain latching storage, enforce household labeling, brief all visitors, and review trash receptacle integrity.
+
+A4. Discovery of Radioactive Material on or near the Premises
+A4.1 Immediate action. Cease Doro movement in the area, exit the space with the Doro, and secure entry.
+A4.2 Reporting. Notify Doro Care Services promptly with location and basic description. Do not attempt to investigate mechanisms or observe device operation.
+A4.3 Rationale. Prevents exposure and prevents acquisition of patterns that could enable construction of devices with catastrophic capability.
+
+A5. Doro missing from Premises
+A5.1 Initial search. Conduct a structured sweep of safe zones, avoiding loud calls or pursuit behaviors that could escalate flight.
+A5.2 Notification. If not located within thirty minutes, contact Doro Care Services. Provide last known time, known triggers, and environmental factors.
+A5.3 Post-event review. Update stimulus logs and evaluate Premises for escape vectors to prevent recurrence.
+
+A6. Visitors and events
+A6.1 Pre-brief all visitors on Sections 5 through 7.
+A6.2 Prohibit employment-type conversation or materials.
+A6.3 Designate a quiet room for decompression if early signs of overstimulation occur.
+
+A7. Multi-unit housing and shared spaces
+A7.1 Coordinate with building management to ensure hazard isolation policies are compatible with Sections 5 and 6.
+A7.2 Use carriers or barriers during transit to limit unplanned interactions and stimuli.
+
+A8. Severe weather or utility disruptions
+A8.1 Prepare a kit with records, contact details, and essential supplies consistent with Sections 4 and 5.
+A8.2 During disruptions, maintain routine to the extent possible to reduce stress-induced flight behaviors.
+
+Acceptance
+
+By retaining custody of a Doro, the Adopter affirms that the above Terms have been read in full, that all requirements are understood, and that all controls will be implemented without delay. Doro Care Services reserves the right to remove the Doro if the Adopter fails to maintain vaccination compliance, permits access to Prohibited Substances, exposes the Doro to Radioactive Material, or introduces employment-type stimuli that precipitate flight behavior.
+"
+label_settings = SubResource("LabelSettings_8s15l")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.0
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="NameSign" type="TextEdit" parent="Control/ScrollContainer/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+clip_contents = false
+custom_minimum_size = Vector2(10, 10)
+layout_direction = 1
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+text = "Stinky"
+placeholder_text = "Sign here:"
+emoji_menu_enabled = false
+wrap_mode = 1
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.4
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Confirm" type="Button" parent="Control/ScrollContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Accept"
+metadata/_edit_lock_ = true
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/VBoxContainer2/Confirm" to="." method="_on_confirm_pressed"]

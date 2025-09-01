@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://6gsimtf2isbs"]
+
+[ext_resource type="Texture2D" uid="uid://dk3nmdwj5l0ka" path="res://Assets/TVTexture.png" id="1_4fac5"]
+[ext_resource type="Script" uid="uid://gnmexhmntqli" path="res://Scenes/TVScene/tv_scene.gd" id="1_mjai7"]
+[ext_resource type="Texture2D" uid="uid://db8013715p7tv" path="res://Assets/LightTexture.png" id="2_bs21k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fac5"]
+size = Vector2(111, 111)
+
+[node name="TvScene" type="Window"]
+transparent_bg = true
+initial_position = 2
+size = Vector2i(112, 112)
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+unfocusable = true
+script = ExtResource("1_mjai7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Area2D"]
+position = Vector2(37, 68)
+scale = Vector2(0.205908, 1.09761)
+energy = 16.0
+blend_mode = 2
+texture = ExtResource("2_bs21k")
+texture_scale = 0.2
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(56, 56)
+texture = ExtResource("1_4fac5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(56.5, 56.5)
+shape = SubResource("RectangleShape2D_4fac5")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

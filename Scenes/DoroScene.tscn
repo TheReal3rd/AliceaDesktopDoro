@@ -1,0 +1,227 @@
+[gd_scene load_steps=15 format=3 uid="uid://dyq0s07b22xn6"]
+
+[ext_resource type="Script" uid="uid://br4yd4hmexb7q" path="res://Scenes/doro_scene.gd" id="1_hrbpg"]
+[ext_resource type="SpriteFrames" uid="uid://crud16d8qsd2l" path="res://Sprites/DoroScene.tres" id="2_v1ohq"]
+[ext_resource type="Texture2D" uid="uid://b6tq5ca3orttv" path="res://Assets/doroCageTexture.png" id="3_a3lqf"]
+[ext_resource type="Texture2D" uid="uid://x6myhtywmw3n" path="res://Assets/SleepingZ.png" id="3_v1ohq"]
+[ext_resource type="Texture2D" uid="uid://owhiiyamygwi" path="res://Assets/angerSymbol.png" id="4_bwggp"]
+[ext_resource type="Texture2D" uid="uid://cgj3fh3jhyfem" path="res://Assets/questionMarks.png" id="5_knhxj"]
+[ext_resource type="Texture2D" uid="uid://selrr35ju5qe" path="res://Assets/heart.png" id="6_lhcdb"]
+[ext_resource type="Texture2D" uid="uid://b30mhoeol0p0o" path="res://Assets/psychedlicParticle.png" id="6_ppr8x"]
+[ext_resource type="Texture2D" uid="uid://djcj7hlk0rdg4" path="res://Assets/eatParticle.png" id="7_bwggp"]
+[ext_resource type="Texture2D" uid="uid://dtiiyhht7wqe2" path="res://Assets/Meals/Brocolie.png" id="8_lhcdb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrbpg"]
+size = Vector2(102, 97)
+
+[sub_resource type="Gradient" id="Gradient_eyx71"]
+interpolation_mode = 2
+colors = PackedColorArray(0.80013, 0.00232587, 0.989303, 1, 1, 0.367648, 0.526245, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1ohq"]
+size = Vector2(35, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3lqf"]
+size = Vector2(37, 12)
+
+[node name="DoroScene" type="Area2D"]
+script = ExtResource("1_hrbpg")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_v1ohq")
+animation = &"NukeTinker"
+frame_progress = 0.708019
+speed_scale = 0.8
+metadata/_edit_lock_ = true
+
+[node name="CageSprite" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(1, 2)
+texture = ExtResource("3_a3lqf")
+metadata/_edit_lock_ = true
+
+[node name="AngySprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(9, -12)
+rotation = 0.610865
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_bwggp")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(5, 1.5)
+shape = SubResource("RectangleShape2D_hrbpg")
+metadata/_edit_lock_ = true
+
+[node name="SleepingParticles" type="CPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -14)
+emitting = false
+amount = 4
+texture = ExtResource("3_v1ohq")
+lifetime = 1.5
+speed_scale = 1.5
+explosiveness = 0.42
+randomness = 0.15
+emission_shape = 3
+emission_rect_extents = Vector2(30, 3)
+gravity = Vector2(0, -20)
+angle_min = -40.0
+angle_max = 40.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+metadata/_edit_lock_ = true
+
+[node name="PsychedlicParticles" type="CPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -14)
+emitting = false
+amount = 4
+texture = ExtResource("6_ppr8x")
+lifetime = 1.5
+speed_scale = 1.5
+explosiveness = 0.42
+randomness = 0.15
+emission_shape = 3
+emission_rect_extents = Vector2(30, 3)
+spread = 90.0
+gravity = Vector2(0, -20)
+angular_velocity_min = -300.0
+angular_velocity_max = 300.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+tangential_accel_min = -30.0
+tangential_accel_max = 30.0
+angle_min = -160.0
+angle_max = 160.0
+scale_amount_min = 0.03
+scale_amount_max = 0.06
+color_ramp = SubResource("Gradient_eyx71")
+metadata/_edit_lock_ = true
+
+[node name="ConfusedParticles" type="CPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -14)
+emitting = false
+amount = 4
+texture = ExtResource("5_knhxj")
+lifetime = 1.5
+speed_scale = 1.5
+explosiveness = 0.42
+randomness = 0.15
+emission_shape = 3
+emission_rect_extents = Vector2(30, 3)
+gravity = Vector2(0, -20)
+angle_min = -40.0
+angle_max = 40.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+metadata/_edit_lock_ = true
+
+[node name="HeartsParticles" type="CPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -14)
+emitting = false
+amount = 4
+texture = ExtResource("6_lhcdb")
+lifetime = 1.5
+speed_scale = 1.5
+explosiveness = 0.42
+randomness = 0.15
+emission_shape = 3
+emission_rect_extents = Vector2(30, 3)
+gravity = Vector2(0, -20)
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+angle_min = -40.0
+angle_max = 40.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+metadata/_edit_lock_ = true
+
+[node name="EatingParticles" type="CPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(-13, 12)
+emitting = false
+amount = 6
+texture = ExtResource("7_bwggp")
+lifetime = 1.5
+speed_scale = 2.0
+explosiveness = 0.21
+randomness = 0.29
+lifetime_randomness = 0.24
+emission_shape = 1
+emission_sphere_radius = 5.88
+spread = 75.86
+gravity = Vector2(0, 30)
+angular_velocity_min = -192.0
+angular_velocity_max = 246.86
+radial_accel_min = -7.75
+radial_accel_max = 7.62
+angle_min = -40.0
+angle_max = 40.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+metadata/_edit_lock_ = true
+
+[node name="HungyParticles" type="CPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -14)
+emitting = false
+amount = 4
+texture = ExtResource("8_lhcdb")
+lifetime = 1.5
+speed_scale = 1.5
+explosiveness = 0.42
+randomness = 0.15
+emission_shape = 3
+emission_rect_extents = Vector2(30, 3)
+gravity = Vector2(0, -20)
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+angle_min = -40.0
+angle_max = 40.0
+scale_amount_min = 0.3
+scale_amount_max = 0.3
+metadata/_edit_lock_ = true
+
+[node name="HeadpatPart1" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadpatPart1"]
+visible = false
+position = Vector2(-11.5, -22)
+shape = SubResource("RectangleShape2D_v1ohq")
+debug_color = Color(0.900565, 0.000165377, 0.762251, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="HeadpatPart2" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadpatPart2"]
+visible = false
+position = Vector2(15.5, -22)
+shape = SubResource("RectangleShape2D_a3lqf")
+debug_color = Color(0.900565, 0.000165377, 0.762251, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="SaveUpdate" type="Timer" parent="."]
+wait_time = 120.0
+autostart = true
+
+[node name="EmotionUpdate" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="tvDestroyed" from="." to="." method="_on_tv_destroyed"]
+[connection signal="uncage" from="." to="." method="_on_uncage"]
+[connection signal="mouse_entered" from="HeadpatPart1" to="." method="_on_headpat_part_1_mouse_entered"]
+[connection signal="mouse_entered" from="HeadpatPart2" to="." method="_on_headpat_part_2_mouse_entered"]
+[connection signal="timeout" from="SaveUpdate" to="." method="_on_save_update_timeout"]
+[connection signal="timeout" from="EmotionUpdate" to="." method="_on_emotion_update_timeout"]
