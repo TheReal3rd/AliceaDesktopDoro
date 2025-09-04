@@ -3,7 +3,7 @@ extends Window
 @onready var interactionMenuNode = $InteractionMenu
 @onready var settingsMenuNode = $SettingsMenu
 @onready var settingsContainer = $SettingsMenu/ScrollContainer/VBoxContainer
-@onready var coinLabel = $InteractionMenu/CoinLabel
+
 @onready var global = get_node("/root/Global")
 
 #Settings Scene
@@ -18,9 +18,6 @@ func _ready() -> void:
 		var settingSceneTemp = settingScene.instantiate()
 		settingSceneTemp.setSetting(setting)
 		settingsContainer.add_child(settingSceneTemp)
-
-func _process(delta: float) -> void:
-	coinLabel.set_text("Alicea Coins: %d" % global.getDoroNode().getCoins())
 
 func _on_close_requested() -> void:
 	queue_free()

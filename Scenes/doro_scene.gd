@@ -117,8 +117,7 @@ func getCoins() -> int:
 	return playerCoins
 	
 func setCoins(value: int):
-	playerCoins = value
-	playerCoins = clamp(playerCoins, 0, 9223372036854775807)
+	playerCoins = clamp(value, 0, 9223372036854775807)
 
 func setCurrentAnimation(newAnimation) -> void:
 	match currentAnimation:
@@ -202,20 +201,17 @@ func setHappinessScore(newValue: int) -> void:
 		happinesScore = 100
 		return
 	
-	happinesScore = newValue
-	happinesScore = clamp(happinesScore, 0, 100)
+	happinesScore = clamp(newValue, 0, 100)
 	
 func setHungyLevel(newValue: int) -> void:
 	if disableCaring:
 		hungyLevel = 0
 		return
 	
-	hungyLevel = newValue
-	hungyLevel = clamp(hungyLevel, 0, 100)
+	hungyLevel = clamp(newValue, 0, 100)
 
 func setNukeProgress(amount: int) -> void:
-	nukeProgress = amount
-	nukeProgress = clamp(nukeProgress, 0, 100)
+	nukeProgress = clamp(amount, 0, 100)
 	
 	if nukeProgress == 100:
 		pass#TODO add end game where alicea achives world domination.

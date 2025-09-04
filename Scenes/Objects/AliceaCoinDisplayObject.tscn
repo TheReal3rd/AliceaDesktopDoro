@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhjjqyovwuabw"]
+
+[ext_resource type="Script" uid="uid://3b36o7vcq2av" path="res://Scenes/Objects/alicea_coin_display_object.gd" id="1_g8kfl"]
+[ext_resource type="Texture2D" uid="uid://dgyej6yuybvsi" path="res://Assets/Shop/PlaceHolder.png" id="1_jvp8o"]
+
+[node name="AliceaCoinDisplayObject" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_g8kfl")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_jvp8o")
+expand_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="CoinLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Alicea Coins: 0"
+vertical_alignment = 1
+metadata/_edit_lock_ = true

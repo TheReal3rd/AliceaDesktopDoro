@@ -71,7 +71,7 @@ func readDoroData(allowDataWrite:bool=false) -> void:
 		if doroNode != null:
 			doroNode.loadDoroSaveData(data)
 		else:
-			printerr("Doro node not initilized but save data read and set attmpted logical error.")
+			printerr("Doro node not initilized but save data read and set attempted logical error.")
 		
 	
 func writeDoroData() -> void:
