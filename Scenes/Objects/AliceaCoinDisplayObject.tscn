@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhjjqyovwuabw"]
 
 [ext_resource type="Script" uid="uid://3b36o7vcq2av" path="res://Scenes/Objects/alicea_coin_display_object.gd" id="1_g8kfl"]
-[ext_resource type="Texture2D" uid="uid://dgyej6yuybvsi" path="res://Assets/Shop/PlaceHolder.png" id="1_jvp8o"]
+[ext_resource type="SpriteFrames" uid="uid://41578rawuxta" path="res://Sprites/AliceaCoinAnimatedTexture.tres" id="2_g8kfl"]
 
 [node name="AliceaCoinDisplayObject" type="HBoxContainer"]
 anchors_preset = 15
@@ -14,10 +14,15 @@ alignment = 1
 script = ExtResource("1_g8kfl")
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-texture = ExtResource("1_jvp8o")
-expand_mode = 2
+
+[node name="CoinTexture" type="AnimatedSprite2D" parent="MarginContainer"]
+position = Vector2(-10, 20)
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("2_g8kfl")
+frame_progress = 0.442882
+speed_scale = 2.5
 metadata/_edit_lock_ = true
 
 [node name="CoinLabel" type="Label" parent="."]

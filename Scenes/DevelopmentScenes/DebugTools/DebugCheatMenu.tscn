@@ -1,0 +1,115 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3vafwgoc861b"]
+
+[ext_resource type="Script" uid="uid://p76we07nytmi" path="res://Scenes/DevelopmentScenes/DebugTools/debug_cheat_menu.gd" id="1_fgvkb"]
+[ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/menuBackground.png" id="1_od78y"]
+
+[node name="DebugCheatMenu" type="Window"]
+disable_3d = true
+title = "Debug / Cheat Menu"
+initial_position = 1
+size = Vector2i(500, 500)
+transient = true
+transient_to_focused = true
+unresizable = true
+script = ExtResource("1_fgvkb")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -8.0
+offset_top = -9.0
+offset_right = 507.0
+offset_bottom = 507.0
+texture = ExtResource("1_od78y")
+metadata/_edit_lock_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 493.0
+offset_bottom = 489.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="Reset Happiness" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reset Happiness
+"
+metadata/_edit_lock_ = true
+
+[node name="Reset Hungy Level" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reset Hungy Level"
+metadata/_edit_lock_ = true
+
+[node name="Reset All" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reset All"
+metadata/_edit_lock_ = true
+
+[node name="PlayPsychedlic" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Psychedlic Animation"
+metadata/_edit_lock_ = true
+
+[node name="PlayHappie" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Happie Animation"
+metadata/_edit_lock_ = true
+
+[node name="PlayEvilLaugh" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Evil Laugh Animation"
+metadata/_edit_lock_ = true
+
+[node name="PlayAngy" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Angy Animation"
+metadata/_edit_lock_ = true
+
+[node name="PlayAngyPanic" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Angy Panic Animation"
+metadata/_edit_lock_ = true
+
+[node name="Spawn TV" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Spawn TV"
+metadata/_edit_lock_ = true
+
+[node name="GiveCoin" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Give 1 Coin"
+metadata/_edit_lock_ = true
+
+[node name="3DCoinTest" type="Button" parent="Control/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "3DCoin Test"
+metadata/_edit_lock_ = true
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Reset Happiness" to="." method="_on_reset_happiness_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Reset Hungy Level" to="." method="_on_reset_hungy_level_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Reset All" to="." method="_on_reset_all_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/PlayPsychedlic" to="." method="_on_play_psychedlic_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/PlayHappie" to="." method="_on_play_happie_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/PlayEvilLaugh" to="." method="_on_play_evil_laugh_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/PlayAngy" to="." method="_on_play_angy_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/PlayAngyPanic" to="." method="_on_play_angy_panic_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/Spawn TV" to="." method="_on_spawn_tv_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/GiveCoin" to="." method="_on_give_coin_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/3DCoinTest" to="." method="_on_d_coint_test_pressed"]

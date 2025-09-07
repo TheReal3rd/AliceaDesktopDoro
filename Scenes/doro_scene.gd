@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var optionsMenuScene = load("res://Scenes/OptionsMenu.tscn")
-@onready var debugMenuScene = load("res://Scenes/DebugTools/DebugCheatMenu.tscn")
+@onready var debugMenuScene = load("res://Scenes/DevelopmentScenes/DebugTools/DebugCheatMenu.tscn")
 @onready var tvScene = load("res://Scenes/TVScene/TVScene.tscn")
 
 @onready var spriteTexture = $AnimatedSprite2D
@@ -211,6 +211,10 @@ func setHungyLevel(newValue: int) -> void:
 	hungyLevel = clamp(newValue, 0, 100)
 
 func setNukeProgress(amount: int) -> void:
+	if disableCaring:
+		nukeProgress = 0
+		return
+	
 	nukeProgress = clamp(amount, 0, 100)
 	
 	if nukeProgress == 100:

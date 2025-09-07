@@ -12,10 +12,10 @@ anchor_bottom = 1.25
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("1_i5peg")
 texture_hover = ExtResource("2_qecc3")
+texture_disabled = ExtResource("2_qecc3")
 script = ExtResource("1_niwg8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(1, 0, 1, 1)
 visibility_layer = 3
 z_index = -1
 layout_mode = 1
@@ -25,5 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+color = Color(1, 0, 1, 1)
 
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

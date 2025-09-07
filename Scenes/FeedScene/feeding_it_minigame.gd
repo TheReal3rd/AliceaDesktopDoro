@@ -16,6 +16,7 @@ extends Window
 @onready var plate3Button = $Control/Plate3/TextureButton3
 
 @onready var aliceaDoro = $AliceaDoroObject
+@onready var reRollButton = $Control/ReRollButton
 
 @onready var optionsMenuScene = load("res://Scenes/OptionsMenu.tscn")
 @onready var global = get_node("/root/Global")
@@ -85,6 +86,9 @@ func runAnimation(plateNode1, plateNode2, chosenPlate, delta) -> void:
 	else:
 		plateNode1.modulate.a = lerp(plateNode1.modulate.a, 0.0, animationSpeed * delta)
 		plateNode2.modulate.a = lerp(plateNode2.modulate.a, 0.0, animationSpeed * delta)
+	
+func _process(delta: float) -> void:
+	reRollButton.set_text("Re-Roll: %d" % reRollCost)
 	
 func _physics_process(delta: float) -> void:
 	if plateAnimationComplete:
@@ -207,6 +211,9 @@ func generateRandomMeals():
 	plate3Text.set_text(plate3Meal.getMealName())
 		
 func handleSaveData(data:Dictionary) -> void:
+	if data.has("cost"):
+		reRollCost = int(data.get("cost"))
+	
 	for name in ["meal1", "meal2", "meal3"]:
 		if data.has(name):
 			var foodName = data.get(name)
@@ -241,7 +248,6 @@ func _on_re_roll_button_pressed() -> void:
 		generateRandomMeals()
 		writeFoodItemsData()
 
-
 func _on_exit_button_pressed() -> void:
-	if Input.is_action_just_pressed("optionsMenuBind"):
-		get_tree().root.add_child(optionsMenuScene.instantiate())
+	queue_free()
+	get_tree().root.add_child(optionsMenuScene.instantiate())

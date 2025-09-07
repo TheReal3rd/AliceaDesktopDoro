@@ -8,8 +8,6 @@ disable_3d = true
 canvas_item_default_texture_filter = 0
 initial_position = 1
 size = Vector2i(800, 800)
-transient = true
-transient_to_focused = true
 unresizable = true
 script = ExtResource("1_krkij")
 
@@ -51,4 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 
+[connection signal="badMove" from="." to="." method="_on_bad_move"]
+[connection signal="cellPressed" from="." to="." method="_on_cell_pressed"]
+[connection signal="cellTrailingInfo" from="." to="." method="_on_cell_trailing_info"]
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]

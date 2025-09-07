@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2qdy37nomr8r"]
+
+[ext_resource type="Script" uid="uid://dvewp6xbxqdhv" path="res://Scenes/DevelopmentScenes/3DCoinTest/3d_coin.gd" id="1_4q7um"]
+[ext_resource type="Texture2D" uid="uid://jtvqlbni43kd" path="res://Assets/AliceaCoin/backSideTexture.png" id="1_8wbe6"]
+[ext_resource type="Texture2D" uid="uid://wdf3l1jb7hyl" path="res://Assets/AliceaCoin/frontSideTexture.png" id="2_hri07"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hri07"]
+atlas = ExtResource("1_8wbe6")
+region = Rect2(0, 0, 460, 460)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4q7um"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hri07")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q7um"]
+atlas = ExtResource("2_hri07")
+region = Rect2(0, 0, 460, 460)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk7es"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q7um")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Environment" id="Environment_ctf8h"]
+background_mode = 1
+background_color = Color(0, 0.560784, 0, 1)
+adjustment_brightness = 4.8
+adjustment_contrast = 3.49
+
+[node name="3dCoin" type="Window"]
+initial_position = 1
+size = Vector2i(800, 800)
+unresizable = true
+script = ExtResource("1_4q7um")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0, 5)
+top_level = true
+current = true
+
+[node name="BackSide" type="AnimatedSprite3D" parent="Node3D"]
+double_sided = false
+sprite_frames = SubResource("SpriteFrames_4q7um")
+
+[node name="FrontSide" type="AnimatedSprite3D" parent="Node3D"]
+sprite_frames = SubResource("SpriteFrames_bk7es")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D"]
+environment = SubResource("Environment_ctf8h")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

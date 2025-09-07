@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://uaublio62s0c"]
+
+[ext_resource type="Texture2D" uid="uid://jtvqlbni43kd" path="res://Assets/AliceaCoin/backSideTexture.png" id="1_2utxs"]
+[ext_resource type="Script" uid="uid://d0a1ea4p77eph" path="res://Scenes/Objects/3d_coin_object.gd" id="1_3x4pu"]
+[ext_resource type="Texture2D" uid="uid://wdf3l1jb7hyl" path="res://Assets/AliceaCoin/frontSideTexture.png" id="2_3x4pu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hri07"]
+atlas = ExtResource("1_2utxs")
+region = Rect2(0, 0, 460, 460)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xfepc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hri07")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q7um"]
+atlas = ExtResource("2_3x4pu")
+region = Rect2(0, 0, 460, 460)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vyhpf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q7um")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="3dCoinObject" type="Node3D"]
+script = ExtResource("1_3x4pu")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0, 5)
+top_level = true
+current = true
+
+[node name="BackSide" type="AnimatedSprite3D" parent="."]
+double_sided = false
+sprite_frames = SubResource("SpriteFrames_xfepc")
+
+[node name="FrontSide" type="AnimatedSprite3D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vyhpf")
