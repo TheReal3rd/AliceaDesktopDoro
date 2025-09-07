@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8sac25vjpl1x"]
+[gd_scene load_steps=5 format=3 uid="uid://c8sac25vjpl1x"]
 
 [ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/menuBackground.png" id="1_7tagf"]
 [ext_resource type="Script" uid="uid://csy2lm0sp3p8o" path="res://Scenes/NukeSabotage/nuke_sabotage.gd" id="1_krkij"]
+[ext_resource type="Theme" uid="uid://dl6fvv3e5ioc0" path="res://GUI/MainTheme.tres" id="2_lvlvb"]
+[ext_resource type="PackedScene" uid="uid://b871kod3sdg6h" path="res://Scenes/Objects/AliceaDoroObject.tscn" id="3_f7m04"]
 
 [node name="NukeSabotage" type="Window"]
 disable_3d = true
@@ -11,7 +13,7 @@ size = Vector2i(800, 800)
 unresizable = true
 script = ExtResource("1_krkij")
 
-[node name="Control" type="Control" parent="."]
+[node name="GameplayScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -24,9 +26,10 @@ offset_right = 400.0
 offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_lvlvb")
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="GameplayScreen"]
 layout_mode = 0
 offset_right = 800.0
 offset_bottom = 800.0
@@ -34,7 +37,7 @@ texture = ExtResource("1_7tagf")
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="MiniGameNode" type="GridContainer" parent="Control"]
+[node name="MiniGameNode" type="GridContainer" parent="GameplayScreen"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.26
@@ -48,8 +51,105 @@ offset_bottom = -300.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
+
+[node name="ScoreLabel" type="Label" parent="GameplayScreen"]
+layout_mode = 1
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 76.0
+offset_bottom = 29.0
+text = "Score: 00"
+metadata/_edit_lock_ = true
+
+[node name="TimerLabel" type="Label" parent="GameplayScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = 6.0
+offset_right = 44.0
+offset_bottom = 29.0
+grow_horizontal = 2
+text = "Time: 00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="EndgameScreen" type="Control" parent="GameplayScreen"]
+top_level = true
+z_index = 99
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="ColorRect" parent="GameplayScreen/EndgameScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.5
+offset_top = -155.0
+offset_right = 178.5
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.792157)
+metadata/_edit_lock_ = true
+
+[node name="AliceaDoroObject" parent="GameplayScreen/EndgameScreen" instance=ExtResource("3_f7m04")]
+position = Vector2(108, 93)
+animationEnum = 1
+
+[node name="FinishButton" type="Button" parent="GameplayScreen/EndgameScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = 97.5
+offset_right = 27.0
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Finish"
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ScoreLabel" type="Label" parent="GameplayScreen/EndgameScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -119.5
+offset_right = 24.0
+offset_bottom = -96.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Score:"
+metadata/_edit_lock_ = true
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 35.0
 
 [connection signal="badMove" from="." to="." method="_on_bad_move"]
 [connection signal="cellPressed" from="." to="." method="_on_cell_pressed"]
 [connection signal="cellTrailingInfo" from="." to="." method="_on_cell_trailing_info"]
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="GameplayScreen/EndgameScreen/FinishButton" to="." method="_on_finish_button_pressed"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

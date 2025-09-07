@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://behcionwl8kfd"]
+[gd_scene load_steps=5 format=3 uid="uid://behcionwl8kfd"]
 
 [ext_resource type="Script" uid="uid://duqinhsja38oy" path="res://Scenes/options_menu.gd" id="1_1jju4"]
+[ext_resource type="Theme" uid="uid://dl6fvv3e5ioc0" path="res://GUI/MainTheme.tres" id="1_s3xhb"]
 [ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/menuBackground.png" id="2_1jju4"]
 [ext_resource type="PackedScene" uid="uid://dhjjqyovwuabw" path="res://Scenes/Objects/AliceaCoinDisplayObject.tscn" id="3_ayvsw"]
 
@@ -12,6 +13,7 @@ size = Vector2i(500, 500)
 transient = true
 transient_to_focused = true
 unresizable = true
+theme = ExtResource("1_s3xhb")
 script = ExtResource("1_1jju4")
 
 [node name="InteractionMenu" type="Control" parent="."]
@@ -19,6 +21,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 500.0
 offset_bottom = 500.0
+theme = ExtResource("1_s3xhb")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="InteractionMenu"]
@@ -29,6 +32,7 @@ offset_top = -9.0
 offset_right = 507.0
 offset_bottom = 507.0
 texture = ExtResource("2_1jju4")
+stretch_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="AliceaCoinDisplayObject" parent="InteractionMenu" instance=ExtResource("3_ayvsw")]

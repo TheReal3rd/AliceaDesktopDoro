@@ -9,8 +9,8 @@ extends Area2D
 @onready var eatingParticleEmitter = $EatingParticles
 @onready var sleepingParticleEmitter = $SleepingParticles
 
-enum animations { Idle, Angy, ReallyAngy, Happie, Sad, SundayPillow, Eating }
-@export_enum("Idle", "Angy", "ReallyAngy", "Happie", "Sad", "SundayPillow", "Eating") var animationEnum: int = animations.Idle
+enum animations { Idle, Angy, ReallyAngy, Happie, Sad, SundayPillow, Eating, EvilLaugh }
+@export_enum("Idle", "Angy", "ReallyAngy", "Happie", "Sad", "SundayPillow", "Eating", "EvilLaugh") var animationEnum: int = animations.Idle
 
 enum particle {None, Confused, Eating, Sleeping, Hearts}
 @export_enum("None", "Confused", "Eating", "Sleeping", "Hearts") var particlesEnum: int = particle.None : set = setParticles
