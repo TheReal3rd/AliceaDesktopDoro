@@ -93,8 +93,8 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if plateAnimationComplete:
 		if doroAnimationComplete:
-			aliceaDoro.setAnimation(aliceaDoro.animations.Eating)
 			if not rewardGiven:
+				aliceaDoro.setAnimation(aliceaDoro.animations.Eating)
 				var doroNode = global.getDoroNode()
 				doroNode.changeHungyLevel(-selectedMeal.getHungyAmount())
 				doroNode.changeHappinessScore(selectedMeal.getHappinessAmount())

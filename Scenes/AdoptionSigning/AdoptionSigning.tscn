@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgikbauthfhl2"]
 
 [ext_resource type="Script" uid="uid://ddnv6h5uay17r" path="res://Scenes/AdoptionSigning/adoption_signing.gd" id="1_8s15l"]
-[ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/menuBackground.png" id="1_k5e6f"]
+[ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/MenuBackgrounds/default.png" id="1_k5e6f"]
 [ext_resource type="Texture2D" uid="uid://bq783b1cldkcf" path="res://Assets/paperTexture.png" id="2_5x4an"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5x4an"]

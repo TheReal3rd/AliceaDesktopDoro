@@ -1,0 +1,103 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsow8uty4506q"]
+
+[ext_resource type="Script" uid="uid://ybto7gfvqsrk" path="res://Scenes/ScreenConfigurator/screen_configurator.gd" id="1_861gm"]
+[ext_resource type="Texture2D" uid="uid://buc2vdfiatlxl" path="res://Assets/MenuBackgrounds/defaultNoButterflies.png" id="1_cd6yt"]
+[ext_resource type="Theme" uid="uid://dl6fvv3e5ioc0" path="res://GUI/MainTheme.tres" id="2_1keb2"]
+
+[node name="ScreenConfigurator" type="Window"]
+title = "Screen Configurator"
+initial_position = 1
+size = Vector2i(1000, 800)
+script = ExtResource("1_861gm")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1keb2")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cd6yt")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -350.0
+offset_right = 250.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.701961)
+metadata/_edit_lock_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+draw_focus_border = true
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="ExitButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = 319.0
+offset_right = -167.0
+offset_bottom = 351.0
+grow_horizontal = 0
+grow_vertical = 2
+text = " Exit "
+metadata/_edit_lock_ = true
+
+[node name="SaveButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = 319.0
+offset_right = -28.0
+offset_bottom = 351.0
+grow_horizontal = 0
+grow_vertical = 2
+text = " Save "
+metadata/_edit_lock_ = true
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="startDragging" from="." to="." method="_on_start_dragging"]
+[connection signal="stopDragging" from="." to="." method="_on_stop_dragging"]
+[connection signal="pressed" from="Control/ExitButton" to="." method="_on_exit_button_pressed"]

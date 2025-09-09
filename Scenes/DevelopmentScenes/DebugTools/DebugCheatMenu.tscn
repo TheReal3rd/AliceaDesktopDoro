@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b3vafwgoc861b"]
 
 [ext_resource type="Script" uid="uid://p76we07nytmi" path="res://Scenes/DevelopmentScenes/DebugTools/debug_cheat_menu.gd" id="1_fgvkb"]
-[ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/menuBackground.png" id="1_od78y"]
+[ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/MenuBackgrounds/default.png" id="1_od78y"]
 [ext_resource type="Theme" uid="uid://dl6fvv3e5ioc0" path="res://GUI/MainTheme.tres" id="2_cgrvd"]
 
 [node name="DebugCheatMenu" type="Window"]

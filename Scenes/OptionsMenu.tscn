@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://behcionwl8kfd"]
+[gd_scene load_steps=6 format=3 uid="uid://behcionwl8kfd"]
 
 [ext_resource type="Script" uid="uid://duqinhsja38oy" path="res://Scenes/options_menu.gd" id="1_1jju4"]
 [ext_resource type="Theme" uid="uid://dl6fvv3e5ioc0" path="res://GUI/MainTheme.tres" id="1_s3xhb"]
-[ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/menuBackground.png" id="2_1jju4"]
+[ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/MenuBackgrounds/default.png" id="2_1jju4"]
 [ext_resource type="PackedScene" uid="uid://dhjjqyovwuabw" path="res://Scenes/Objects/AliceaCoinDisplayObject.tscn" id="3_ayvsw"]
+[ext_resource type="Texture2D" uid="uid://buc2vdfiatlxl" path="res://Assets/MenuBackgrounds/defaultNoButterflies.png" id="3_un4xt"]
 
 [node name="OptionsMenu" type="Window"]
 disable_3d = true
@@ -31,8 +32,7 @@ offset_left = -8.0
 offset_top = -9.0
 offset_right = 507.0
 offset_bottom = 507.0
-texture = ExtResource("2_1jju4")
-stretch_mode = 1
+texture = ExtResource("3_un4xt")
 metadata/_edit_lock_ = true
 
 [node name="AliceaCoinDisplayObject" parent="InteractionMenu" instance=ExtResource("3_ayvsw")]
@@ -91,12 +91,17 @@ layout_mode = 2
 text = "Nuke Sabotage"
 metadata/_edit_lock_ = true
 
+[node name="Dorozon Shop" type="Button" parent="InteractionMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dorozon Shop"
+metadata/_edit_lock_ = true
+
 [node name="SettingsMenu" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 500.0
+offset_bottom = 500.0
 metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="SettingsMenu"]
@@ -129,12 +134,28 @@ offset_bottom = 34.0
 text = "Save"
 metadata/_edit_lock_ = true
 
+[node name="DisplayConfigButton" type="Button" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.5
+offset_top = -38.0
+offset_right = 72.5
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Display Settings"
+metadata/_edit_lock_ = true
+
 [node name="ScrollContainer" type="ScrollContainer" parent="SettingsMenu"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 47.0
 offset_right = 496.0
-offset_bottom = 473.0
+offset_bottom = 452.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 metadata/_edit_lock_ = true
@@ -150,5 +171,7 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="InteractionMenu/Shutdown" to="." method="_on_shutdown_pressed"]
 [connection signal="pressed" from="InteractionMenu/ScrollContainer/VBoxContainer/Feed" to="." method="_on_feed_pressed"]
 [connection signal="pressed" from="InteractionMenu/ScrollContainer/VBoxContainer/NukeSabotage" to="." method="_on_nuke_sabotage_pressed"]
+[connection signal="pressed" from="InteractionMenu/ScrollContainer/VBoxContainer/Dorozon Shop" to="." method="_on_dorozon_shop_pressed"]
 [connection signal="pressed" from="SettingsMenu/SettingExitButton" to="." method="_on_setting_exit_button_pressed"]
 [connection signal="pressed" from="SettingsMenu/SettingSaveButton" to="." method="_on_setting_save_button_pressed"]
+[connection signal="pressed" from="SettingsMenu/DisplayConfigButton" to="." method="_on_display_config_button_pressed"]

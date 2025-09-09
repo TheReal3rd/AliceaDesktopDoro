@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cx44erc66dldk"]
 
 [ext_resource type="Script" uid="uid://3xwqq4regi25" path="res://Scenes/FeedScene/feeding_it_minigame.gd" id="1_f7uby"]
-[ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/menuBackground.png" id="1_xmgol"]
+[ext_resource type="Texture2D" uid="uid://c26qatnkr8yc5" path="res://Assets/MenuBackgrounds/default.png" id="1_xmgol"]
 [ext_resource type="Texture2D" uid="uid://bt5xl8rbpdxt" path="res://Assets/plateTexture.png" id="2_a5nmm"]
 [ext_resource type="PackedScene" uid="uid://dhjjqyovwuabw" path="res://Scenes/Objects/AliceaCoinDisplayObject.tscn" id="3_d5boo"]
 [ext_resource type="PackedScene" uid="uid://b871kod3sdg6h" path="res://Scenes/Objects/AliceaDoroObject.tscn" id="4_1fjla"]

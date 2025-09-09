@@ -11,7 +11,7 @@ This project is still incomplete and still has plans and improvments being worke
 5. Add an RPG like minigame.
 6. Add an Visual Novel like minigame.
 7. Add About Alicea page.
+8. Add Doro over eating. Make the doro get mad if the user feeds doro too frequantly.
 
 ## Known Bugs / Issues
 1. Frame Stutter and decreasing when multiple window's are present.
-2. Eating Animation sometimes doesn't play when Feed It minigame is activated.

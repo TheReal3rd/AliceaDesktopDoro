@@ -8,10 +8,12 @@ extends Window
 
 #Settings Scene
 @onready var settingScene = load("res://Scenes/SettingScene.tscn")
+@onready var displayConfiguratorScene = load("res://Scenes/ScreenConfigurator/ScreenConfigurator.tscn")
 
 #Minigames
 @onready var feedingMinigame = load("res://Scenes/FeedScene/FeedingItMinigame.tscn")
 @onready var nukeSabotageMinigame = load("res://Scenes/NukeSabotage/NukeSabotage.tscn")
+@onready var dorozonShop = load("res://Scenes/Dorozon Shop/DorozonShopScene.tscn")
 
 func _ready() -> void:
 	for setting in global.getSettings().values():
@@ -50,3 +52,9 @@ func _on_shutdown_pressed() -> void:
 
 func _on_nuke_sabotage_pressed() -> void:
 	startMinigame(nukeSabotageMinigame)
+
+func _on_dorozon_shop_pressed() -> void:
+	startMinigame(dorozonShop)
+
+func _on_display_config_button_pressed() -> void:
+	startMinigame(displayConfiguratorScene)

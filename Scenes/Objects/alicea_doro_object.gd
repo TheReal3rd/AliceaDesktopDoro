@@ -26,6 +26,7 @@ func _process(_delta: float) -> void:
 	
 func setAnimation(newAnimation: animations) -> void:
 	animationEnum = newAnimation
+	doroSprite.set_frame(0)
 	doroSprite.play(str(animations.keys().get(animationEnum)))
 	
 func setParticles(newParticleEnum) -> void:
