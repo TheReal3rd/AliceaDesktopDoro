@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsow8uty4506q"]
 
 [ext_resource type="Script" uid="uid://ybto7gfvqsrk" path="res://Scenes/ScreenConfigurator/screen_configurator.gd" id="1_861gm"]
-[ext_resource type="Texture2D" uid="uid://buc2vdfiatlxl" path="res://Assets/MenuBackgrounds/defaultNoButterflies.png" id="1_cd6yt"]
 [ext_resource type="Theme" uid="uid://dl6fvv3e5ioc0" path="res://GUI/MainTheme.tres" id="2_1keb2"]
+[ext_resource type="Texture2D" uid="uid://givyawhjf7ep" path="res://Assets/MenuBackgrounds/defaultDark.png" id="3_bdde8"]
 
 [node name="ScreenConfigurator" type="Window"]
 title = "Screen Configurator"
@@ -27,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_cd6yt")
+texture = ExtResource("3_bdde8")
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
@@ -60,7 +60,7 @@ vertical_scroll_mode = 2
 metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/ScrollContainer"]
-custom_minimum_size = Vector2(1000, 1000)
+custom_minimum_size = Vector2(2000, 2000)
 layout_mode = 2
 alignment = 1
 metadata/_edit_lock_ = true
@@ -97,7 +97,56 @@ grow_vertical = 2
 text = " Save "
 metadata/_edit_lock_ = true
 
+[node name="DisplaySettings" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -350.0
+offset_right = -14.0
+offset_bottom = 306.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 0.690196)
+metadata/_edit_lock_ = true
+
+[node name="DisplaySettings" type="Control" parent="Control/DisplaySettings"]
+anchors_preset = 0
+offset_right = 221.0
+offset_bottom = 656.0
+metadata/_edit_lock_ = true
+
+[node name="DisplayIDLabel" type="Label" parent="Control/DisplaySettings/DisplaySettings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.0
+offset_top = 8.0
+offset_right = 47.0
+offset_bottom = 29.0
+grow_horizontal = 2
+text = "Display ID: 0"
+metadata/_edit_lock_ = true
+
+[node name="StateCheckButton" type="CheckButton" parent="Control/DisplaySettings/DisplaySettings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.5
+offset_top = 29.0
+offset_right = 72.5
+offset_bottom = 61.0
+grow_horizontal = 2
+text = "Use Display"
+metadata/_edit_lock_ = true
+
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="startDragging" from="." to="." method="_on_start_dragging"]
 [connection signal="stopDragging" from="." to="." method="_on_stop_dragging"]
 [connection signal="pressed" from="Control/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="toggled" from="Control/DisplaySettings/DisplaySettings/StateCheckButton" to="." method="_on_state_check_button_toggled"]

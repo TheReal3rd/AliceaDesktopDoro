@@ -14,6 +14,9 @@ var displayID: int = -1: set = setDisplayID, get = getDisplayID
 var colour: Color = Color.WHITE: set = setColour, get = getColour
 var hovering: bool = false: set = setHovering, get = isHovering
 var dragging: bool = false: set = setDragging, get = isDragging
+var displayState: bool = true: set = setDisplayState, get = getDisplayState
+
+var snapPosition = null
 
 func _ready() -> void:
 	displayLabel.set_text("Display: %d" % displayID)
@@ -25,31 +28,14 @@ func _physics_process(delta: float) -> void:
 		dragging = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 		if dragging:
 			if managerRefer != null:
-				managerRefer.emit_signal("startDragging")
+				managerRefer.emit_signal("startDragging", self)
 	else:
 		dragging = false
 		if managerRefer != null:
 			managerRefer.emit_signal("stopDragging")
 	
 	if dragging:
-		var withInLockRange: bool = false
-		var closestPoint: Vector2
-		var closestDistance: float = 100000000000.0
-		for otherDisplays:Node2D in managerRefer.getDisplays(displayID):
-			for point: Vector2 in otherDisplays.getSnappingPoints():
-				var tempDist = point.distance_to(get_global_position())
-				if tempDist < closestDistance:
-					closestPoint = point
-					closestDistance = tempDist
-					
-		if closestDistance <= 25:
-			withInLockRange = true
-		
-		if withInLockRange:
-			set_global_position(closestPoint)
-			print("Snap")
-		else:
-			set_global_position(get_global_mouse_position() - (getSize() / 2))
+		set_global_position(get_global_mouse_position() - (getSize() / 2))
 	
 func setDisplayID(newID: int) -> void:
 	displayID = newID
@@ -87,10 +73,20 @@ func isHovering() -> bool:
 	return hovering
 	
 func setDragging(newDragging: bool) -> void:
+	if dragging and not newDragging:
+		if snapPosition and snapPosition != null and global_position.distance_to(snapPosition) <= 330:
+			set_global_position(snapPosition)
+			snapPosition = null
 	dragging = newDragging
 	
 func isDragging() -> bool:
 	return dragging
+	
+func setDisplayState(newState:bool) -> void:
+	displayState = newState
+	
+func getDisplayState() -> bool:
+	return displayState
 	
 func getSnappingPoints() -> Array:
 	return [ topPos.get_global_position(), bottomPos.get_global_position(), leftPos.get_global_position(), rightPos.get_global_position() ]
@@ -100,3 +96,29 @@ func _on_drag_button_mouse_entered() -> void:
 
 func _on_drag_button_mouse_exited() -> void:
 	hovering = false
+
+func findSnappingPoint(area: Area2D):
+	var hitNode = area.get_parent()
+	if dragging:
+		for groupName in area.get_groups():
+			match groupName:
+				"DisplayTop":
+					snapPosition = hitNode.get_global_position() - Vector2(0, 135)
+				"DisplayBottom":
+					snapPosition = hitNode.get_global_position() + Vector2(0, 135)
+				"DisplayLeft":
+					snapPosition = hitNode.get_global_position() - Vector2(240, 0)
+				"DisplayRight":
+					snapPosition = hitNode.get_global_position() + Vector2(240, 0)
+
+func _on_top_position_area_entered(area: Area2D) -> void:
+	findSnappingPoint(area)
+
+func _on_bottom_position_area_entered(area: Area2D) -> void:
+	findSnappingPoint(area)
+
+func _on_left_position_area_entered(area: Area2D) -> void:
+	findSnappingPoint(area)
+	
+func _on_right_position_area_entered(area: Area2D) -> void:
+	findSnappingPoint(area)

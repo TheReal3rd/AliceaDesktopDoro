@@ -1,25 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://cojx3v0d1204n"]
+[gd_scene load_steps=7 format=3 uid="uid://cojx3v0d1204n"]
 
 [ext_resource type="Script" uid="uid://c7v3kkbmgsvof" path="res://Scenes/ScreenConfigurator/display_element.gd" id="2_q0b0h"]
 [ext_resource type="Theme" uid="uid://dl6fvv3e5ioc0" path="res://GUI/MainTheme.tres" id="2_tmygy"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmygy"]
+radius = 15.0
+height = 225.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0b0h"]
+radius = 15.0
+height = 225.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26u4d"]
+radius = 15.0
+height = 115.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bpi81"]
+radius = 15.0
+height = 115.0
+
 [node name="DisplayElement" type="Node2D"]
+position = Vector2(-120, -67.25)
 script = ExtResource("2_q0b0h")
 
-[node name="TopPosition" type="Node2D" parent="."]
-position = Vector2(122, 2)
+[node name="TopPosition" type="Area2D" parent="." groups=["DisplayTop"]]
+position = Vector2(120, 2)
 metadata/_edit_lock_ = true
 
-[node name="BottomPosition" type="Node2D" parent="."]
-position = Vector2(122, 133)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPosition"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tmygy")
+debug_color = Color(0, 0.638672, 0.375468, 0.42)
 metadata/_edit_lock_ = true
 
-[node name="LeftPosition" type="Node2D" parent="."]
+[node name="BottomPosition" type="Area2D" parent="." groups=["DisplayBottom"]]
+position = Vector2(120, 133)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPosition"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_q0b0h")
+debug_color = Color(0, 0.545618, 0.939468, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="LeftPosition" type="Area2D" parent="." groups=["DisplayLeft"]]
 position = Vector2(2, 68)
 metadata/_edit_lock_ = true
 
-[node name="RightPosition" type="Node2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPosition"]
+shape = SubResource("CapsuleShape2D_26u4d")
+debug_color = Color(0.943741, 3.7542e-06, 0.600252, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="RightPosition" type="Area2D" parent="." groups=["DisplayRight"]]
 position = Vector2(238, 68)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPosition"]
+shape = SubResource("CapsuleShape2D_bpi81")
 metadata/_edit_lock_ = true
 
 [node name="Outline" type="ColorRect" parent="."]
@@ -35,6 +73,7 @@ offset_top = 5.0
 offset_right = 235.0
 offset_bottom = 130.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="DragButton" type="TextureButton" parent="Outline/Inner"]
 layout_mode = 1
@@ -43,6 +82,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="DisplayIDLabel" type="Label" parent="Outline/Inner"]
 layout_mode = 1
@@ -50,6 +90,11 @@ offset_right = 82.0
 offset_bottom = 23.0
 theme = ExtResource("2_tmygy")
 text = " Display: ID "
+metadata/_edit_lock_ = true
 
+[connection signal="area_entered" from="TopPosition" to="." method="_on_top_position_area_entered"]
+[connection signal="area_entered" from="BottomPosition" to="." method="_on_bottom_position_area_entered"]
+[connection signal="area_entered" from="LeftPosition" to="." method="_on_left_position_area_entered"]
+[connection signal="area_entered" from="RightPosition" to="." method="_on_right_position_area_entered"]
 [connection signal="mouse_entered" from="Outline/Inner/DragButton" to="." method="_on_drag_button_mouse_entered"]
 [connection signal="mouse_exited" from="Outline/Inner/DragButton" to="." method="_on_drag_button_mouse_exited"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs128fhcjd5rt"]
+
+[ext_resource type="Script" uid="uid://bhlytrrp50sx1" path="res://Scenes/ScreenConfigurator/window_outline_object.gd" id="1_46d5u"]
+[ext_resource type="Theme" uid="uid://dl6fvv3e5ioc0" path="res://GUI/MainTheme.tres" id="1_fxi8t"]
+
+[node name="WindowOutlineObject" type="Window"]
+transparent_bg = true
+size = Vector2i(150, 100)
+unresizable = true
+borderless = true
+always_on_top = true
+transparent = true
+mouse_passthrough = true
+script = ExtResource("1_46d5u")
+
+[node name="OutlineRect" type="ReferenceRect" parent="."]
+offset_right = 150.0
+offset_bottom = 100.0
+theme = ExtResource("1_fxi8t")
+border_width = 5.0
+editor_only = false
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="OutlineRect"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 101.0
+color = Color(0, 0, 0, 0.498039)
+metadata/_edit_lock_ = true
+
+[node name="DisplayIDLabel" type="Label" parent="OutlineRect"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 86.0
+offset_bottom = 27.0
+text = "Display: ID"
+metadata/_edit_lock_ = true
+
+[node name="DisplaySizeLabel" type="Label" parent="OutlineRect"]
+offset_left = 4.0
+offset_top = 25.0
+offset_right = 86.0
+offset_bottom = 48.0
+text = "Size: 0000x0000"
+metadata/_edit_lock_ = true
+
+[node name="EnabledStateLabel" type="Label" parent="OutlineRect"]
+offset_left = 4.0
+offset_top = 61.0
+offset_right = 153.0
+offset_bottom = 84.0
+text = "State: True"
+metadata/_edit_lock_ = true
